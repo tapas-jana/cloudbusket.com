@@ -1,0 +1,41 @@
+/* Logo styling */
+.site-header {
+  padding: 15px 30px;
+}
+
+.menu {
+  margin-bottom: 5px; /* reduce space below menu */
+  padding: 0;         /* remove extra padding if any */
+  list-style: none;
+}
+
+.tagline {
+  margin-top: 5px;    /* reduce space above tagline */
+  font-size: 18px;    /* optional: adjust size */
+  line-height: 1.2;   /* optional: make it more compact */
+}
+
+.site-logo {
+  width: 180px;   /* Adjust size */
+  height: auto;
+}
+
+.logo-container {
+  width: 100%;
+  text-align: center;
+  margin: 20px auto 10px;
+  background: transparent;
+}
+
+.site-logo {
+  max-width: 150px;     /* controls logo size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  background: transparent;
+}
+
+img {
+  border: none;
+}
+
