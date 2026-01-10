@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Us | CloudBusket</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #1e3a8a;
+    }
+    .contact-info {
+      margin-bottom: 30px;
+    }
+    .contact-info p {
+      margin: 6px 0;
+    }
+    form {
+      display: grid;
+      gap: 15px;
+    }
+    input, textarea, button {
+      padding: 12px;
+      font-size: 16px;
+      width: 100%;
+    }
+    input, textarea {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e40af;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Contact Us</h1>
+
+  <div class="contact-info">
+    <p><strong>Company:</strong> CloudBusket</p>
+    <p><strong>Address:</strong> 423/A Raja Rammohan Roy Road, Kolkata-700082, Kolkata, West Bengal, India</p>
+    <p><strong>Phone:</strong> +91-9331456741</p>
+    <p><strong>Email:</strong> support@cloudbusket.com</p>
+  </div>
+
+  <h2>Get in Touch</h2>
+
+  <form action="/contact-submit.php" method="post">
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <input type="email" name="email" placeholder="Your Email Address" required>
+
+    <input type="tel" name="phone" placeholder="Your Contact Number" required>
+
+    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+</body>
+</html>
+
