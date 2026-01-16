@@ -60,14 +60,24 @@
 
   <div class="contact-info">
     <p><strong>Company:</strong> CloudBusket</p>
-    <p><strong>Address:</strong> 423/A Raja Rammohan Roy Road, Kolkata-700082, Kolkata, West Bengal, India</p>
+    <p><strong>Address:</strong> 423/A Raja Rammohan Roy Road, Kolkata-700082, West Bengal, India</p>
     <p><strong>Phone:</strong> +91-9331456741</p>
     <p><strong>Email:</strong> support@cloudbusket.com</p>
   </div>
 
   <h2>Get in Touch</h2>
 
-  <form action="/contact-submit.php" method="post">
+  <!-- Web3Forms Contact Form -->
+  <form action="https://api.web3forms.com/submit" method="POST">
+
+    <!-- REQUIRED -->
+    <input type="hidden" name="access_key" value="4270ba7f-9f82-4462-a630-430ba476a3d1">
+
+    <!-- OPTIONAL CONFIG -->
+    <input type="hidden" name="subject" value="New Contact Request - CloudBusket">
+    <input type="hidden" name="from_name" value="CloudBusket Website">
+
+    <!-- FORM FIELDS -->
     <input type="text" name="name" placeholder="Your Name" required>
 
     <input type="email" name="email" placeholder="Your Email Address" required>
@@ -75,6 +85,9 @@
     <input type="tel" name="phone" placeholder="Your Contact Number" required>
 
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+
+    <!-- Anti-spam -->
+    <input type="checkbox" name="botcheck" style="display:none">
 
     <button type="submit">Submit</button>
   </form>
