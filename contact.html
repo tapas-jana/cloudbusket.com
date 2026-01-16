@@ -51,6 +51,14 @@
     button:hover {
       background-color: #1e40af;
     }
+    #responseMsg {
+      margin-top: 15px;
+      font-weight: bold;
+      color: green;
+    }
+    #responseMsg.error {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -67,31 +75,48 @@
 
   <h2>Get in Touch</h2>
 
-  <!-- Web3Forms Contact Form -->
-  <form action="https://api.web3forms.com/submit" method="POST">
-
-    <!-- REQUIRED -->
-    <input type="hidden" name="access_key" value="4270ba7f-9f82-4462-a630-430ba476a3d1">
-
-    <!-- OPTIONAL CONFIG -->
-    <input type="hidden" name="subject" value="New Contact Request - CloudBusket">
-    <input type="hidden" name="from_name" value="CloudBusket Website">
-
-    <!-- FORM FIELDS -->
+  <!-- Contact Form -->
+  <form id="contactForm">
     <input type="text" name="name" placeholder="Your Name" required>
-
     <input type="email" name="email" placeholder="Your Email Address" required>
-
     <input type="tel" name="phone" placeholder="Your Contact Number" required>
-
     <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-
-    <!-- Anti-spam -->
-    <input type="checkbox" name="botcheck" style="display:none">
-
     <button type="submit">Submit</button>
   </form>
+
+  <p id="responseMsg"></p>
 </div>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = {
+    name: this.name.value,
+    email: this.email.value,
+    phone: this.phone.value,
+    message: this.message.value
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbwsXv9bEfQbQRCu56Fhv37uGiVRHNUOcb8QlFkD4hhjZaFR5E8EfucK6Ple9hEIv/exec", {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: { "Content-Type": "application/json" }
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("responseMsg").innerText =
+      "Thank you! We will contact you soon.";
+    document.getElementById("responseMsg").classList.remove("error");
+    this.reset();
+  })
+  .catch(err => {
+    document.getElementById("responseMsg").innerText =
+      "Something went wrong. Please try again.";
+    document.getElementById("responseMsg").classList.add("error");
+  });
+});
+</script>
 
 </body>
 </html>
